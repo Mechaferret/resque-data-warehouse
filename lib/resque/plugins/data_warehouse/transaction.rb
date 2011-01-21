@@ -2,7 +2,6 @@ module Resque
   module Plugins
     module DataWarehouse
       class Transaction
-        #include Spawn
         @queue = :transaction
 
         def self.perform(transaction_id, transaction_type, transaction_date)
@@ -40,11 +39,7 @@ module Resque
           Resque.redis.rpush(record.transaction_key, record.transaction_data.to_json)
           Resque.enqueue(self.class, model.id, model.class.to_s, model.updated_at)
         rescue Exception => ex
-          # Try to spawn instead
           puts "transaction failing due to exception #{ex.inspect} #{ex.backtrace.join("\n")}"
-          # spawn do
-          #             record.execute
-          #           end
         end
         
       end
