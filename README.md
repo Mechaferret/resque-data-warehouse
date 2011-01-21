@@ -64,4 +64,6 @@ Install
 Acknowledgements
 ================
 
+Thanks to resque and Redis for making this work possible.
+
 [rq]: http://github.com/defunkt/resque
