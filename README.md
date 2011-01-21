@@ -63,4 +63,5 @@ Install
 
 Acknowledgements
 ================
+
 [rq]: http://github.com/defunkt/resque
