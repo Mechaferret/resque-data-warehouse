@@ -58,7 +58,7 @@ Install
 
 ### In a Rails app, as a plugin
 
-    $ ./script/plugin install git://github.com/mechaferret/resque-data-warehouse
+    $ ./script/plugin install git://github.com/Mechaferret/resque-data-warehouse.git
 
 
 Acknowledgements
