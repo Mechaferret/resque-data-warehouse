@@ -10,9 +10,9 @@ reporting.
 Transactions for a given object (classname + ID) are queued up behind a Redis key, 
 and then processed using Resque jobs. If load is low, each transaction will be processed
 almost immediately after it occurs; at higher loads, multiple transactions will queue up
-before the Resque job gets to them, and then only the last transaction will be applied to the
-data warehousing table, thus minimizing database load and dynamically adjusting the delay
-in the copy to match the current load.
+before the Resque job gets to them, and then only the cumulative result of the previous transactions 
+will be applied to the data warehousing table, thus minimizing database load and dynamically adjusting 
+the delay in the copy to match the current load.
 
 This only works with Rails; it has only been tested with Rails 2.3.4 in which case the after_commit
 gem is also required.

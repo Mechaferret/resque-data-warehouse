@@ -1,8 +1,5 @@
 module Resque
   module Plugins
-    #
-    # data_warehoused
-    #
     module DataWarehouse
     	Dir[File.dirname(__FILE__) + '/data_warehouse/*.rb'].each{|g| require g}  
     	def self.included(base)

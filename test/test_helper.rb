@@ -5,6 +5,7 @@ $TESTING = true
 require 'rubygems'
 require 'test/unit'
 require 'resque'
+gem 'activerecord', '=2.3.4'
 require 'active_record'
 require 'active_record/fixtures'
 require 'active_support'
