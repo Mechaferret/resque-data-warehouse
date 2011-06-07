@@ -1,7 +1,7 @@
 Resque Data Warehouse
 =====================
 
-A [Resque][rq] plugin. Requires Resque 1.9.10.
+A [Resque][rq] plugin. Requires Resque 1.9.10 or higher.
 
 resque-data-warehouse allows you to use Redis to queue up and then Resque to process transactions 
 on transaction-heavy tables that need to be replicated on other tables optimized for 
@@ -14,8 +14,7 @@ before the Resque job gets to them, and then only the cumulative result of the p
 will be applied to the data warehousing table, thus minimizing database load and dynamically adjusting 
 the delay in the copy to match the current load.
 
-This only works with Rails; it has only been tested with Rails 2.3.4 in which case the after_commit
-gem is also required.
+This only works with Rails >=3.0; it has been tested with Rails 3.0.5.
 
 Usage / Examples
 ----------------
