@@ -12,7 +12,7 @@ module Resque
       module ClassMethods
         def warehoused
           include InstanceMethods
-          after_commit_on_save :record_to_fact
+          after_commit :record_to_fact
           after_destroy :destroy_fact
         end
       end
