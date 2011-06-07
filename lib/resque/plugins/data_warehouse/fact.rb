@@ -4,7 +4,7 @@ module Resque
 
       module Fact
         def self.find(type, values)
-          klass = "#{type}Fact".constantize
+          klass = "Facts::#{type}Fact".constantize
           fact = klass.send(:find, values["id"]) rescue nil
           fact = klass.new if fact.nil?
           fact.id = values["id"]
