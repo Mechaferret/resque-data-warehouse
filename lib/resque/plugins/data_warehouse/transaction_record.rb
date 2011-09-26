@@ -51,10 +51,12 @@ module Resque
         end
     
         def execute
-          if self.action=='delete'
-            self.fact.send("destroy")
-          else
-            self.fact.send("execute_transaction")
+          ActiveSupport::Notifications.instrument("execute.resque-data-warehouse", :transaction=>self.to_json) do
+            if self.action=='delete'
+              self.fact.send("destroy")
+            else
+              self.fact.send("execute_transaction")
+            end
           end
         end
     
